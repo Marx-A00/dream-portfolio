@@ -6,12 +6,12 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(
-  75,
+  65,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
 );
-camera.position.set(0, 5, 10);
+camera.position.set(80, 35, 80);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -27,6 +27,7 @@ scene.add(directionalLight);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // Add smooth damping effect
 controls.dampingFactor = 0.05;
+controls.target.set(0, 0, 0); // Set the orbit target to the center
 
 // Load 3D model
 const loader = new GLTFLoader();
